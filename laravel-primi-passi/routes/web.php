@@ -13,6 +13,41 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/home', function () {
+    $nav = [
+        'pagina1',
+        'pagina2',
+        'pagina3',
+        'pagina4',
+    ];
+    return view('home', compact('nav'));
+})->name('home');
+
+
+Route::get('/pagina1', function () {
+    $page = 'Contenuto della pagina 1';
+    $link = route('home');
+    return view('pagina1', compact('page', 'link'));
+})->name('pagina1');
+
+
+Route::get('/pagina2', function () {
+    $page = 'Contenuto della pagina 2';
+    $link = route('home');
+    return view('pagina2', compact('page', 'link'));
+})->name('pagina2');
+
+
+Route::get('/pagina3', function () {
+    $page = 'Contenuto della pagina 3';
+    $link = route('home');
+    return view('pagina3' , compact('page', 'link'));
+})->name('pagina3');
+
+
+Route::get('/pagina4', function () {
+    $page = 'Contenuto della pagina 4';
+    $link = route('home');
+    return view('pagina4' , compact('page', 'link'));
+})->name('pagina4');
